@@ -1,0 +1,62 @@
+syntax = "proto3";
+ 
+package proto;
+ 
+option java_multiple_files = true;
+	 
+	message Veiculo {
+	int32 id = 1;
+	string marca = 2;
+	string modelo = 3;
+        string anoFab = 4;
+        string anoMod = 5;
+        string preco = 6;
+}
+ 
+message CreateVeiculoRequest {
+	Veiculo veiculo = 1;
+}
+ 
+message CreateVeiculoResponse {
+	Veiculo veiculo = 1;
+}
+
+message UpdateVeiculoRequest {
+	Veiculo veiculo = 1;
+}
+ 
+message UpdateVeiculoResponse {
+	Veiculo veiculo = 1;
+}
+ 
+message DeleteVeiculoRequest {
+	int32 veiculoId = 1;
+}
+ 
+message DeleteVeiculoResponse {
+	int32 veiculoId = 1;
+}
+ 
+message GetVeiculoRequest {
+	int32 veiculoId = 1;
+}
+ 
+message GetVeiculoResponse {
+	Veiculo veiculo = 1;
+}
+ 
+message ListVeiculoRequest {
+ 
+}
+ 
+message ListVeiculoResponse {
+	repeated Veiculo veiculo = 1;
+}
+ 
+service VeiculoService {
+	rpc CreateVeiculo(CreateVeiculoRequest) returns (CreateVeiculoResponse);
+        rpc UpdateVeiculo(UpdateVeiculoRequest) returns (UpdateVeiculoResponse);
+	rpc DeleteVeiculo(DeleteVeiculoRequest) returns (DeleteVeiculoResponse);
+	rpc GetVeiculo(GetVeiculoRequest) returns (GetVeiculoResponse);
+	rpc ListVeiculo(ListVeiculoRequest) returns (ListVeiculoResponse);
+}
